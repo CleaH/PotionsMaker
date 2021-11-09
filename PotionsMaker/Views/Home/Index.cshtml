@@ -6,9 +6,7 @@
 <div class="ingpage">
     <div class="ingnav">
         <h2>Ingredients</h2>
-        <div class="ing-grid">
-            @* map on ingredients *@
-           
+        <div class="ing-grid">           
               @foreach (var ingredient in ingredients)
                 {
                     <div class="ing-image tooltip" onclick="">
@@ -16,35 +14,12 @@
                     </div>
                    
                 }
-
-            @*<div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>*@
-
         </div>
     </div>
 
     <div class="ingpage-center">
 
-        <h1 class="">Ma Potion</h1>
+        <h1 class="">@ViewData["Title"]</h1>
 
         <div class="potion">
             <div class="potion-wrapper">
@@ -73,31 +48,17 @@
             <div class="potion-ing">
                 <h3>Liste des ingrédients</h3>
                 <ul>
-                    <li>
-                        <div class="ing-image"></div>
-                        1 x feuille de menthe
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        3 x feuille de laurier
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        2 x feuille de bouleau
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        1 x feuille de hetre
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        3 x feuille de fraise
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        2 x feuille de mandragor
-                    </li>
+                    @foreach (var ing in @ViewBag.listeIngredients)
+                    {
+                        <li>
+                            <div class="ing-image">
+                                <img src="@ing.Key.ImageIngredient" alt="ingredient" />
+                            </div>
+                            @ing.Value x @ing.Key.Nom
+                        </li>
+                    }
                 </ul>
+
             </div>
         </div>
     </div>
