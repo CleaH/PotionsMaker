@@ -6,7 +6,12 @@
 <div class="ingpage">
     <div class="ingnav">
         <h2>Ingredients</h2>
-        <div class="ing-grid">           
+        <div class="ing-grid">
+            @if( ingredients == null || ingredients.Count == 0)
+            {
+                <p>Aucun ingrédient</p>
+            } else
+            {
               @foreach (var ingredient in ingredients)
                 {
                     <div class="ing-image tooltip" onclick="">
@@ -14,6 +19,7 @@
                     </div>
                    
                 }
+            }
         </div>
     </div>
 
@@ -35,12 +41,17 @@
                 </div>
 
                 <div class="potion-buttons">
-                    <button class="button secondary">
-                        Jeter la potion &#x274C;
-                    </button>
-                    <button class="button">
-                        Préparer la potion &#x1F525;
-                    </button>
+                    <a href='@Url.Action("ResetPotionIntoCookies", "Home")'>
+                        <button class="button secondary">
+                            Jeter la potion &#x274C;
+                        </button>
+                    </a>
+                    @*<a href='@Url.Action("Test", "Home", new { e = "test" })'>*@
+                        <button class="button">
+                            Préparer la potion &#x1F525;
+                        </button>
+                    @*</a>*@
+
                 </div>
             </div>
             
@@ -48,15 +59,23 @@
             <div class="potion-ing">
                 <h3>Liste des ingrédients</h3>
                 <ul>
-                    @foreach (var ing in @ViewBag.listeIngredients)
+                    @if (@ViewBag.listeIngredients == null || @ViewBag.listeIngredients.Count == 0)
                     {
-                        <li>
-                            <div class="ing-image">
-                                <img src="@ing.Key.ImageIngredient" alt="ingredient" />
-                            </div>
-                            @ing.Value x @ing.Key.Nom
-                        </li>
+                        <p>Aucun ingrédient</p>
                     }
+                    else
+                    {
+                        @foreach (var ing in @ViewBag.listeIngredients)
+                        {
+                            <li>
+                                <div class="ing-image">
+                                    <img src="@ing.Key.ImageIngredient" alt="ingredient" />
+                                </div>
+                                @ing.Value x @ing.Key.Nom
+                            </li>
+                        }
+                    }
+
                 </ul>
 
             </div>
