@@ -1,0 +1,15 @@
+﻿:root {
+    --bg-color: #ffffff;
+    --white: #ffffff;
+    --black: #000000;
+    --black-light: #222222;
+    --grey: #656176;
+    --potion: rgb(22,255, 255);
+    --hp-red: rgb(116,0,1);
+    --hp-gold: rgb(211, 166, 37);
+    --hp-green: rgb(26, 71, 42);
+    --hp-silver: rgb(93, 93, 93);
+    --hp-yellow: rgb(255, 216, 0);
+    --hp-blue: rgb(14, 26, 64);
+    --hp-bronze: rgb(148, 107, 45);
+}

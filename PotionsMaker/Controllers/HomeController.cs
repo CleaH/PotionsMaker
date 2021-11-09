@@ -1,9 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using PotionsMaker.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using PotionsMaker.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,7 +12,10 @@ namespace PotionsMaker.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
+
+
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,11 +24,12 @@ namespace PotionsMaker.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            List<Ingredient> nosIngredients;
+            using (PotionMakerContext db = new PotionMakerContext())
+            {
+                nosIngredients = db.Ingredients.ToList();
+            }
+            ViewData["Ingredients"] = nosIngredients;
             return View();
         }
 

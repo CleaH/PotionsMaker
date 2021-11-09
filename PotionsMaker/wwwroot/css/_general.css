@@ -1,0 +1,36 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a,
+a:visited,
+a:active{
+    text-decoration: none;
+    color: inherit;
+}
+
+button{
+    border: none;
+    outline: none;
+    color: inherit;
+    font-family: inherit;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: 'Arima Madurai', sans-serif;
+    color: var(--white);
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+footer {
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--black-light);
+    color: var(--white);
+}

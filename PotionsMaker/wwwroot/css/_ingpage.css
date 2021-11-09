@@ -1,0 +1,209 @@
+﻿.ingpage{
+    display: flex;
+}
+.ingnav, .ingpage-center {
+    padding: 15px;
+    
+}
+
+/*NAV LATERALE ING*/
+.ingnav {
+    width: max-content;
+    background-color: var(--black-light);
+    min-height: 100vh;
+    z-index: 2;
+}
+
+.ingnav h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'hp', sans-serif;
+    font-size: 2rem;
+}
+
+.ing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 75px);
+    gap: 15px;
+
+}
+
+.ing-image {
+    width: 75px;
+    height: 75px;
+    background-color: lightblue;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ing-image:hover{
+    transform: translateY(-3px);
+}
+
+.ing-image:active {
+    transform: translateY(1px);
+}
+
+.ingpage-center{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ingpage-center h1 {
+    font-family: 'hp', sans-serif;
+    font-size: 5rem;
+}
+
+/*POTION*/
+.potion {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 15% 1fr;
+    align-items: center;
+}
+
+.potion-wrapper{
+    justify-self: right;
+}
+
+.potion-image{
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.potion-ing {
+    grid-column: 3/4;
+    align-self: flex-start;
+    justify-self: left;
+    margin-top: 15%;
+}
+
+/*CHAUDRON*/
+.chaudron {
+    z-index: 0;
+    position: relative;
+    width: 300px;
+    height: 270px;
+    background-color: #2D2D2D;
+    border-radius: 100%;
+}
+
+.chaudron-top {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 280px;
+    margin: 0 auto;
+    height: 40%;
+    background-color: #1C1C1C;
+    border: 25px solid #1E1E1E;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.chaudron-potion {
+    background-color: var(--potion);
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+}
+
+.chaudron-foot {
+    position: absolute;
+    top: 85%;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: #1E1E1E;
+}
+
+.chaudron-foot.chaudron-foot1 {
+    left: 32px;
+}
+
+.chaudron-foot.chaudron-foot2 {
+    right: 32px;
+}
+
+/*LISTE ING*/
+.potion-ing h3{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.potion-ing ul {
+    padding-left: 20px;
+    list-style: none;
+}
+
+.potion-ing li{
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.potion-ing li .ing-image{
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    cursor: default;
+}
+
+.potion-ing li .ing-image:hover,
+.potion-ing li .ing-image:active {
+    transform: unset;
+}
+
+.potion-fire{
+    position: absolute;
+    bottom: -50px;
+    width: 250px;
+    z-index: 1;
+}
+
+.potion-buttons{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.potion-buttons .button:first-of-type{
+    margin-right: 15px;
+}
+
+
+/*Tooltip*/
+.tooltip {
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 60vh;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 10;
+    bottom: 20%;
+    left: 200%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
