@@ -137,7 +137,7 @@
 }
 
 .x2 {
-    animation: animateBubble 1.2s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    animation: animateBubble 1.8s linear infinite, sideWays 4s ease-in-out infinite alternate;
     left: 30%;
     top: 8%;
     transform: scale(0.4);
@@ -165,7 +165,7 @@
 }
 
 .x6 {
-    animation: animateBubble 2.1s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    animation: animateBubble 1.1s linear infinite, sideWays 2s ease-in-out infinite alternate;
     left: 30%;
     top: 0;
     transform: scale(0.8);
