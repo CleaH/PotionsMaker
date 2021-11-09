@@ -32,11 +32,11 @@ namespace PotionsMaker.Controllers
             }
             ViewData["Ingredients"] = nosIngredients;
             currentPotion = this.GetPotionFromCookies();
-            currentPotion.Ingredients.Add(new Ingredient()
-            {
-                Nom = "test",
-                IngredientId = 1,
-            });
+            //currentPotion.Ingredients.Add(new Ingredient()
+            //{
+            //    Nom = "test",
+            //    IngredientId = 1,
+            //});
             SavePotionIntoCookies(currentPotion);
             Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients();
             ViewBag.potion = currentPotion;
@@ -81,6 +81,22 @@ namespace PotionsMaker.Controllers
         {
             HttpContext.Session.SetObjectAsJson("currentPotion", potion);
         }
+
+        public IActionResult ResetPotionIntoCookies()
+        {
+            currentPotion = new Potion();
+            SavePotionIntoCookies(currentPotion);
+            Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients();
+            ViewBag.potion = currentPotion;
+            ViewBag.listeIngredients = listeIngCurrentPotion;
+            return RedirectToAction("Index");
+        }
+
+        //public IActionResult Test(string e)
+        //{
+        //    Console.WriteLine(e);
+        //    return RedirectToAction("Index");
+        //}
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
