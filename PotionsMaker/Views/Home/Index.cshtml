@@ -14,15 +14,13 @@
             {
               @foreach (var ingredient in ingredients)
                 {
-                    <a href='@Url.Action("AddIngredientToPotion", "Home", new { ingredientId = ingredient.IngredientId })'>
-                        <div class="ing-image tooltip" onclick="">
-                            <span class="tooltiptext">@ingredient.DescriptionIngredient</span> 
-                            <img src="@ingredient.ImageIngredient" />
-                        </div>
-                    </a>
+                    <div class="ing-image tooltip" onclick="">
+                        <span class="tooltiptext">@ingredient.DescriptionIngredient</span> <img src="@ingredient.ImageIngredient" alt="ingredient" /> 
+                    </div>
+                   
                 }
             }
-</div>
+        </div>
     </div>
 
     <div class="ingpage-center">
@@ -33,6 +31,7 @@
             <div class="potion-wrapper">
                 <div class="potion-image">
                     <div class="chaudron">
+                        <div class="chaudron-top">
                         <div class="bubble x1"></div>
                         <div class="bubble x2"></div>
                         <div class="bubble x3"></div>
@@ -43,7 +42,6 @@
                         <div class="bubble x8"></div>
                         <div class="bubble x9"></div>
                         <div class="bubble x10"></div>
-                        <div class="chaudron-top">
                             <div class="chaudron-potion"></div>
                         </div>
                         <div class="chaudron-foot chaudron-foot1"></div>
@@ -81,7 +79,7 @@
                         {
                             <li>
                                 <div class="ing-image">
-                                    <img src="@ing.Key.ImageIngredient" />
+                                    <img src="@ing.Key.ImageIngredient" alt="ingredient" />
                                 </div>
                                 @ing.Value x @ing.Key.Nom
                             </li>
