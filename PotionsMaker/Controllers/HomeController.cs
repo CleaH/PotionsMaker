@@ -16,7 +16,7 @@ namespace PotionsMaker.Controllers
 
         private readonly ILogger<HomeController> _logger;
         Potion currentPotion;
-
+        List<Ingredient> nosIngredients;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -25,38 +25,39 @@ namespace PotionsMaker.Controllers
 
         public IActionResult Index()
         {
-            List<Ingredient> nosIngredients;
             using (PotionMakerContext db = new PotionMakerContext())
             {
                 nosIngredients = db.Ingredients.ToList();
             }
             ViewData["Ingredients"] = nosIngredients;
-            currentPotion = this.GetPotionFromCookies();
-            //currentPotion.Ingredients.Add(new Ingredient()
-            //{
-            //    Nom = "test",
-            //    IngredientId = 1,
-            //});
+            currentPotion = GetPotionFromCookies();
             SavePotionIntoCookies(currentPotion);
-            Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients();
+            Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients(currentPotion);
             ViewBag.potion = currentPotion;
             ViewBag.listeIngredients = listeIngCurrentPotion;
             return View();
         }
 
-        private Dictionary<Ingredient, int> ParsePotionIngredients()
+        private Dictionary<Ingredient, int> ParsePotionIngredients(Potion potion)
         {
-            Dictionary<Ingredient, int> listeIng = new Dictionary<Ingredient, int>();
-            foreach (var ing in currentPotion.Ingredients)
+            Dictionary<int, int> listeIngInt = new Dictionary<int, int>();
+            foreach (var ing in potion.Ingredients)
             {
-                if (!listeIng.ContainsKey(ing))
+                if (!listeIngInt.ContainsKey(ing.IngredientId))
                 {
-                    listeIng.Add(ing, 1);
+                    listeIngInt.Add(ing.IngredientId, 1);
                 }
                 else
                 {
-                    listeIng[ing] = listeIng[ing] + 1;
+                    listeIngInt[ing.IngredientId] = listeIngInt[ing.IngredientId] + 1;
                 }
+            }
+
+            Dictionary<Ingredient, int> listeIng = new Dictionary<Ingredient, int>();
+            foreach (KeyValuePair<int, int> item in listeIngInt)
+            {
+
+                listeIng.Add(nosIngredients.Where(ing => ing.IngredientId == item.Key).ToList()[0], item.Value);
             }
 
             return listeIng;
@@ -64,17 +65,17 @@ namespace PotionsMaker.Controllers
 
         public Potion GetPotionFromCookies()
         {
-            Potion currentPotion;
+            Potion cookiePotion;
             if (HttpContext.Session.GetObjectFromJson<Potion>("currentPotion") == null)
             {
-                currentPotion = new Potion();
+                cookiePotion = new Potion();
                 HttpContext.Session.SetObjectAsJson("currentPotion", currentPotion);
             }
             else
             {
-                currentPotion = HttpContext.Session.GetObjectFromJson<Potion>("currentPotion");
+                cookiePotion = HttpContext.Session.GetObjectFromJson<Potion>("currentPotion");
             }
-            return currentPotion;
+            return cookiePotion;
         }
 
         public void SavePotionIntoCookies(Potion potion)
@@ -86,17 +87,39 @@ namespace PotionsMaker.Controllers
         {
             currentPotion = new Potion();
             SavePotionIntoCookies(currentPotion);
-            Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients();
+            Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients(currentPotion);
             ViewBag.potion = currentPotion;
             ViewBag.listeIngredients = listeIngCurrentPotion;
             return RedirectToAction("Index");
         }
 
+        // implémenter méthode de calcul de potion en fonction des ingrédients
         //public IActionResult Test(string e)
         //{
         //    Console.WriteLine(e);
         //    return RedirectToAction("Index");
         //}
+
+        public IActionResult AddIngredientToPotion(int ingredientId)
+        {
+            using (PotionMakerContext db = new PotionMakerContext())
+            {
+                nosIngredients = db.Ingredients.ToList();
+            }
+            Ingredient ingredient = nosIngredients.Where(ing => ing.IngredientId == ingredientId).ToList()[0];
+            currentPotion = GetPotionFromCookies();
+            if (currentPotion == null)
+            {
+                currentPotion = new Potion();
+            }
+            currentPotion.Ingredients.Add(ingredient);
+            SavePotionIntoCookies(currentPotion);
+            Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients(currentPotion);
+            ViewBag.potion = currentPotion;
+            ViewBag.listeIngredients = listeIngCurrentPotion;
+            return RedirectToAction("Index");
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
