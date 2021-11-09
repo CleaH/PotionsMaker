@@ -14,13 +14,15 @@
             {
               @foreach (var ingredient in ingredients)
                 {
-                    <div class="ing-image tooltip" onclick="">
-                        <span class="tooltiptext">@ingredient.DescriptionIngredient</span> <img src="@ingredient.ImageIngredient" alt="ingredient" /> 
-                    </div>
-                   
+                    <a href='@Url.Action("AddIngredientToPotion", "Home", new { ingredientId = ingredient.IngredientId })'>
+                        <div class="ing-image tooltip" onclick="">
+                            <span class="tooltiptext">@ingredient.DescriptionIngredient</span> 
+                            <img src="@ingredient.ImageIngredient" />
+                        </div>
+                    </a>
                 }
             }
-        </div>
+</div>
     </div>
 
     <div class="ingpage-center">
@@ -79,7 +81,7 @@
                         {
                             <li>
                                 <div class="ing-image">
-                                    <img src="@ing.Key.ImageIngredient" alt="ingredient" />
+                                    <img src="@ing.Key.ImageIngredient" />
                                 </div>
                                 @ing.Value x @ing.Key.Nom
                             </li>
