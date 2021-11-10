@@ -52,7 +52,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-image: url(../assets/Texture-fond.svg);
+    background-image: url(../assets/Texture-fond.webp);
     background-size: cover;
     color: #2D2D2D;
 }
