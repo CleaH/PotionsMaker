@@ -38,6 +38,8 @@ namespace PotionsMaker.Controllers
             return View();
         }
 
+
+
         private Dictionary<Ingredient, int> ParsePotionIngredients(Potion potion)
         {
             Dictionary<int, int> listeIngInt = new Dictionary<int, int>();
@@ -113,11 +115,22 @@ namespace PotionsMaker.Controllers
                 currentPotion = new Potion();
             }
             currentPotion.Ingredients.Add(ingredient);
-            SavePotionIntoCookies(currentPotion);
             Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients(currentPotion);
+
+            Color ingColor = GetIngredientColor(ingredient);
+            currentPotion.ActualColor = ColorTools.ChangeColor(ingColor, currentPotion.ActualColor);
+
+            SavePotionIntoCookies(currentPotion);
             ViewBag.potion = currentPotion;
             ViewBag.listeIngredients = listeIngCurrentPotion;
             return RedirectToAction("Index");
+        }
+
+        private Color GetIngredientColor(Ingredient ing)
+        {
+            Color ingColor = new Color();
+            ingColor = Color.FromArgb((int)ing.R, (int)ing.V, (int)ing.B);
+            return ingColor;
         }
 
 
