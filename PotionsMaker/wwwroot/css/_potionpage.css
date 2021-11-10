@@ -54,7 +54,7 @@
 .fiole-stat h3 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .fiole-stat ul {
@@ -67,6 +67,7 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
+    font-size: 1.4rem;
 }
 
 .fiole-stat li .ing-image {
