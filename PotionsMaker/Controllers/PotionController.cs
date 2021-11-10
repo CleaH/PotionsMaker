@@ -244,10 +244,25 @@ namespace PotionsMaker.Controllers
             ViewBag.Potion = currentPotion;
             String flaconUrl = GetFlaconUrl(currentPotion);
             ViewBag.flaconUrl = flaconUrl;
+            TypeDePotion(currentPotion);
 
             return View();
         }
 
+        public void TypeDePotion(Potion potion)
+        {
+            if (potion.Ingredients.Where(ing => ing.IngredientId == 3).Count() == 3 && potion.Ingredients.Where(ing => ing.IngredientId == 20).Count() == 4)
+            {
+                ViewBag.TypePotion = "Felix" ;
+            }
+            else if (potion.Ingredients.Where(ing => ing.IngredientId == 4).Count() == 1 && potion.Ingredients.Where(ing => ing.IngredientId == 8).Count() == 2 && potion.Ingredients.Where(ing => ing.IngredientId == 16).Count() == 2)
+            {
+                ViewBag.TypePotion = "Polynectar" ;
+            }
+            else
+            { ViewBag.TypePotion = null; }
+
+        }
 
     }
 }
