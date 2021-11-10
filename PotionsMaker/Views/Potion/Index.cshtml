@@ -6,12 +6,14 @@
  }
 
 <div class="potionpage-center">
-
+    <span id="newHexa" style="display: none; visibility: hidden;">@ViewBag.Potion.ActualColor</span>
     <h1 class="potionpage-titre">@ViewData["Title"]</h1>
 
     <div class="fiole">
+
         <div class="fiole-stat">
             <h3>Liste des ingrédients</h3>
+
             <ul>
                 @if (NotrePotion.Ingredients == null)
                 {
@@ -22,23 +24,27 @@
  
                     @foreach (var ing in list)
                     {
-                        <li>
-                            <div class="ing-image">
-                                @*<img src="data:image;base64,@System.Convert.ToBase64String(ing.Key.ImageIngredient)" width="80" height="80" />*@
+            <li>
+                <div class="ing-image">
+                    @*<img src="data:image;base64,@System.Convert.ToBase64String(ing.Key.ImageIngredient)" width="80" height="80" />*@
 
-                            </div>
-                            @ing.Value x @ing.Key.Nom
-                        </li>
+                </div>
+                @ing.Value x @ing.Key.Nom
+            </li>
                     }
                 }
 
             </ul>
         </div>
+
+
         <div class="fiole-wrapper">
             <div class="fiole-image">
-                <object data="/assets/FiolesSVG/Amour.svg" alt="fiole" width="300" height="300"> CA marche pas </object>
+                <object id="potionSvg" data="@ViewBag.flaconUrl" alt="fiole" width="300" height="300"></object>
             </div>
         </div>
+
+
         <div class="fiole-stat">
             <h3>Effet</h3>
             <ul>
@@ -60,6 +66,8 @@
 
 
     </div>
+
+
     <div class="fiole-buttons">
         <a href='@Url.Action("ResetPotionIntoCookies", "Home")'>
             <button class="button secondary">
@@ -71,8 +79,8 @@
             Enregistrer la potion &#128214;
         </button>
         @*</a>*@
-
     </div>
-</div>
+
+
 </div>
 
