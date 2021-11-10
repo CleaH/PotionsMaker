@@ -12,7 +12,7 @@ namespace PotionsMaker.Models
         public Potion()
         {
             Ingredients = new List<Ingredient>();
-            ActualColor = "#FFFFFF";
+            ActualColor = "#d1edec";
             Stats = new Dictionary<string, (int?, string)> {
                 {"Toxicité", (0, "")},
                 {"Soin", (0, "")},

@@ -76,64 +76,64 @@ namespace PotionsMaker.Controllers
             switch (potion.Stats["Toxicité"].Item1)
             {
                 case int i when (i < -10):
-                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "La potion n'est pas toxique.");
+                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "☠️ La potion n'est pas toxique.");
                     break;
                 case int i when (i >= -10 && i < -5):
-                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "La potion est très peu toxique.");
+                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "☠️ La potion est très peu toxique.");
                     break;
                 case int i when (i >= -5 && i < 0):
-                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "La potion est peu toxique.");
+                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "☠️ La potion est peu toxique.");
                     break;
                 case int i when (i >= 0 && i < 5):
-                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "La potion est légèrement toxique.");
+                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "☠️ La potion est légèrement toxique.");
                     break;
                 case int i when (i >= 5 && i < 10):
-                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "La potion est très toxique.");
+                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "☠️ La potion est très toxique.");
                     break;
                 case int i when (i >= 10):
-                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "La potion est mortelle !");
+                    potion.Stats["Toxicité"] = (potion.Stats["Toxicité"].Item1, "☠️ La potion est mortelle !");
                     break;
             }
             switch (potion.Stats["Soin"].Item1)
             {
                 case int i when (i < -10):
-                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "La potion ne soigne pas.");
+                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "🏥 La potion ne soigne pas.");
                     break;
                 case int i when (i >= -10 && i < -5):
-                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "La potion soigne très peu.");
+                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "🏥 La potion soigne très peu.");
                     break;
                 case int i when (i >= -5 && i < 0):
-                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "La potion soigne peu.");
+                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "🏥 La potion soigne peu.");
                     break;
                 case int i when (i >= 0 && i < 5):
-                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "La potion soigne beaucoup.");
+                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "🏥 La potion soigne beaucoup.");
                     break;
                 case int i when (i >= 5 && i < 10):
-                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "La potion peut soigner de toute blessure et empoisonnement.");
+                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "🏥 La potion peut soigner de toute blessure et empoisonnement.");
                     break;
                 case int i when (i >= 10):
-                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "La potion peut ressuciter !");
+                    potion.Stats["Soin"] = (potion.Stats["Soin"].Item1, "🏥 La potion peut ressuciter !");
                     break;
             }
             switch (potion.Stats["Amour"].Item1)
             {
                 case int i when (i < -10):
-                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "La potion rend hideux !");
+                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "😱 La potion rend hideux !");
                     break;
                 case int i when (i >= -10 && i < -5):
-                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "La potion rend très moche.");
+                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "😰 La potion rend très moche.");
                     break;
                 case int i when (i >= -5 && i < 0):
-                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "La potion rend un peu plus moche.");
+                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "😨 La potion rend un peu plus moche.");
                     break;
                 case int i when (i >= 0 && i < 5):
-                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "La potion rend un peu plus beau.");
+                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "😌 La potion rend un peu plus belle/beau.");
                     break;
                 case int i when (i >= 5 && i < 10):
-                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "La potion rend très belle/beau.");
+                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "😉 La potion rend très belle/beau.");
                     break;
                 case int i when (i >= 10):
-                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "La potion rend irresistible !");
+                    potion.Stats["Amour"] = (potion.Stats["Amour"].Item1, "😍 La potion rend irresistible !");
                     break;
             }
             switch (potion.Stats["Puissance"].Item1)
@@ -142,7 +142,7 @@ namespace PotionsMaker.Controllers
                     potion.Stats["Puissance"] = (potion.Stats["Puissance"].Item1, "La potion rend aussi faible qu'un Boursouf !");
                     break;
                 case int i when (i >= -10 && i < -5):
-                    potion.Stats["Puissance"] = (potion.Stats["Puissance"].Item1, "La potion affaiblit énormément.");
+                    potion.Stats["Puissance"] = (potion.Stats["Puissance"].Item1, " La potion affaiblit énormément.");
                     break;
                 case int i when (i >= -5 && i < 0):
                     potion.Stats["Puissance"] = (potion.Stats["Puissance"].Item1, "La potion affaiblit un peu.");
@@ -160,28 +160,28 @@ namespace PotionsMaker.Controllers
             switch (potion.Stats["Mana"].Item1)
             {
                 case int i when (i < -10):
-                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "La potion rend incapable d'utiliser la magie !");
+                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "🪄 La potion rend incapable d'utiliser la magie !");
                     break;
                 case int i when (i >= -10 && i < -5):
-                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "La potion réduit énormement da quantité d'énergie magique.");
+                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "🪄 La potion réduit énormement da quantité d'énergie magique.");
                     break;
                 case int i when (i >= -5 && i < 0):
-                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "La potion réduit un peu la quantité d'énergie magique.");
+                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "🪄 La potion réduit un peu la quantité d'énergie magique.");
                     break;
                 case int i when (i >= 0 && i < 5):
-                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "La potion augmente un peu la quantité d'énergie magique.");
+                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "🪄 La potion augmente un peu la quantité d'énergie magique.");
                     break;
                 case int i when (i >= 5 && i < 10):
-                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "La potion augmente énormement la quantité d' énergie magique.");
+                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "🪄 La potion augmente énormement la quantité d' énergie magique.");
                     break;
                 case int i when (i >= 10):
-                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "La potion permet d'utiliser les sorts les plus puissants !");
+                    potion.Stats["Mana"] = (potion.Stats["Mana"].Item1, "🪄 La potion permet d'utiliser les sorts les plus puissants !");
                     break;
             }
             switch (potion.Stats["Intelligence"].Item1)
             {
                 case int i when (i < -10):
-                    potion.Stats["Intelligence"] = (potion.Stats["Intelligence"].Item1, "La potion rend aussi imbécile qu'un Troll !");
+                    potion.Stats["Intelligence"] = (potion.Stats["Intelligence"].Item1, "👹 La potion rend aussi imbécile qu'un Troll !");
                     break;
                 case int i when (i >= -10 && i < -5):
                     potion.Stats["Intelligence"] = (potion.Stats["Intelligence"].Item1, "La potion rend très bête.");
@@ -196,7 +196,7 @@ namespace PotionsMaker.Controllers
                     potion.Stats["Intelligence"] = (potion.Stats["Intelligence"].Item1, "La potion rend très intelligent.");
                     break;
                 case int i when (i >= 10):
-                    potion.Stats["Intelligence"] = (potion.Stats["Intelligence"].Item1, "La potion rend aussi intelligent que Hermione Granger !");
+                    potion.Stats["Intelligence"] = (potion.Stats["Intelligence"].Item1, "🤓 La potion rend aussi intelligent que Hermione Granger !");
                     break;
             }
             switch (potion.Stats["Agilité"].Item1)
