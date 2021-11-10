@@ -19,7 +19,7 @@
     margin-bottom: 20px;
     font-family: 'hp', sans-serif;
     font-size: 2rem;
-    color: goldenrod;
+    color: var(--hp-gold);
     text-shadow: 0.5px 0.5px 0.5px gray;
 }
 
@@ -281,6 +281,7 @@
 .tooltip {
     display: inline-block;
     border-bottom: 1px dotted black;
+    font-size: 0.9rem;
 }
 
 .tooltip .tooltiptext {
@@ -304,4 +305,12 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+.tooltip-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--hp-gold);
+    font-size: 1.4rem;
 }
