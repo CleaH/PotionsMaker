@@ -16,7 +16,10 @@
                 {
                     <a href='@Url.Action("AddIngredientToPotion", "Home", new { ingredientId = ingredient.IngredientId })'>
                         <div class="ing-image tooltip" onclick="">
-                            <span class="tooltiptext">@ingredient.DescriptionIngredient</span> 
+                            <div class="tooltiptext">
+                                <h4 class="tooltip-title">@ingredient.Nom </h4>
+                                @ingredient.DescriptionIngredient
+                            </div> 
                             <img src="@ingredient.ImageIngredient" />
                         </div>
                     </a>
