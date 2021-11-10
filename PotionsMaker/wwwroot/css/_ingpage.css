@@ -19,6 +19,8 @@
     margin-bottom: 20px;
     font-family: 'hp', sans-serif;
     font-size: 2rem;
+    color: goldenrod;
+    text-shadow: 0.5px 0.5px 0.5px gray;
 }
 
 .ing-grid {
@@ -45,11 +47,14 @@
     transform: translateY(1px);
 }
 
-.ingpage-center{
+.ingpage-center {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url(../assets/Texture-fond.svg);
+    background-size: cover;
+    color: #2D2D2D;
 }
 
 .ingpage-center h1 {
