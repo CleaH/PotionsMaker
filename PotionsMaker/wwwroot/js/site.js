@@ -1,4 +1,10 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// element du svg avec le id "potion" directement dans le fichier svg
+const changeColor = () => {
+    svgPotion.style.fill = newHexa;
+}
 
-// Write your JavaScript code.
+const newHexa = document.getElementById("newHexa").textContent; // valeur hexa récupérée dans un element du HTML
+const svgPotion = document.getElementById("potion"); // element path svg -- renvoi null
+
+svgPotion.addEventListener("load", changeColor);
+
