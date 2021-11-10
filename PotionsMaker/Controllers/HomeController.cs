@@ -118,7 +118,7 @@ namespace PotionsMaker.Controllers
             Dictionary<Ingredient, int> listeIngCurrentPotion = ParsePotionIngredients(currentPotion);
 
             Color ingColor = GetIngredientColor(ingredient);
-            currentPotion.ActualColor = ColorTools.ChangeColor(ingColor, currentPotion.ActualColor);
+            currentPotion.ActualColor = ColorTools.ChangeColor(ingColor, currentPotion.ActualColor, currentPotion.Ingredients.Count);
 
             SavePotionIntoCookies(currentPotion);
             ViewBag.potion = currentPotion;
