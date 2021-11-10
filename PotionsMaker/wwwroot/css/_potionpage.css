@@ -45,8 +45,8 @@
 }
 
 .fiole-stat {
-    align-self: flex-start;
-    justify-self: left;
+    justify-self: center;
+   /* justify-self: left;*/
     margin-top: 15%;
     justify-content: left;
 }
