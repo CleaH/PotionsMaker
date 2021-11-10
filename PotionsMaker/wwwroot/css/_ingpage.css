@@ -27,13 +27,11 @@
     display: grid;
     grid-template-columns: repeat(3, 75px);
     gap: 15px;
-
 }
 
 .ing-image {
     width: 75px;
     height: 75px;
-    background-color: lightblue;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s ease;
