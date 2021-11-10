@@ -28,7 +28,7 @@ namespace PotionsMaker
         }
         static public void GetMaxEffects(Potion potion) 
         {
-            GetMaxEffects(potion);
+            GetMaxStats(potion);
 
             switch (potion.Stats["Toxicité"].Item1)
             {
