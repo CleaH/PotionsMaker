@@ -24,7 +24,8 @@
                     {
                         <li>
                             <div class="ing-image">
-                                @*<img src="data:image;base64,@System.Convert.ToBase64String(ing.Key.ImageIngredient)" width="80" height="80" />*@
+                                @{string pathImage = "/assets/Sprites/" + ing.Key.IngredientId + ".png";}
+                                <img src="@pathImage" width="25" height="25" />
 
                             </div>
                             @ing.Value x @ing.Key.Nom
@@ -73,6 +74,5 @@
         @*</a>*@
 
     </div>
-</div>
 </div>
 

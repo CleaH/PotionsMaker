@@ -18,7 +18,6 @@
 
 .fiole {
     height: 100%;
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
@@ -46,10 +45,10 @@
 }
 
 .fiole-stat {
-    grid-column: 3/4;
     align-self: flex-start;
     justify-self: left;
     margin-top: 15%;
+    justify-content: left;
 }
 
 .fiole-stat h3 {
