@@ -1,12 +1,20 @@
+using PotionsMaker.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
-using PotionsMaker.Models;
+using System.Threading.Tasks;
+using PotionsMaker.Tools;
 
-namespace PotionsMaker 
+
+namespace PotionsMaker.Controllers
 {
-    public class PotionController
+    public class PotionController : Controller
     {
+        Potion currentPotion;
         static public void SetStats(Potion potion)
         {
             foreach (Ingredient ingredient in potion.Ingredients)
@@ -213,5 +221,31 @@ namespace PotionsMaker
                     break;
             }
         }
+
+        public Potion GetPotionFromCookies()
+        {
+            Potion cookiePotion;
+            if (HttpContext.Session.GetObjectFromJson<Potion>("currentPotion") == null)
+            {
+                cookiePotion = new Potion();
+                HttpContext.Session.SetObjectAsJson("currentPotion", currentPotion);
+            }
+            else
+            {
+                cookiePotion = HttpContext.Session.GetObjectFromJson<Potion>("currentPotion");
+            }
+            return cookiePotion;
+        }
+
+        public IActionResult Index()
+        {
+            currentPotion = GetPotionFromCookies();
+            GetMaxEffects(currentPotion);
+            ViewBag.Potion = currentPotion;
+
+            return View();
+        }
+
+
     }
 }

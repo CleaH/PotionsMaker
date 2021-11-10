@@ -1,0 +1,78 @@
+﻿@{ 
+    ViewData["Title"] = "Potion Maker";
+    Potion NotrePotion = ViewBag.Potion;
+
+    Dictionary<Ingredient, int> list = NotrePotion.Ingredients.GroupBy(ing => ing.IngredientId).ToDictionary(x => x.First(), x => x.Count());
+ }
+
+<div class="potionpage-center">
+
+    <h1 class="potionpage-titre">@ViewData["Title"]</h1>
+
+    <div class="fiole">
+        <div class="fiole-stat">
+            <h3>Liste des ingrédients</h3>
+            <ul>
+                @if (NotrePotion.Ingredients == null)
+                {
+                    <p>Aucun ingrédient</p>
+                }
+                else
+                {
+ 
+                    @foreach (var ing in list)
+                    {
+                        <li>
+                            <div class="ing-image">
+                                @*<img src="data:image;base64,@System.Convert.ToBase64String(ing.Key.ImageIngredient)" width="80" height="80" />*@
+
+                            </div>
+                            @ing.Value x @ing.Key.Nom
+                        </li>
+                    }
+                }
+
+            </ul>
+        </div>
+        <div class="fiole-wrapper">
+            <div class="fiole-image">
+                <object data="/assets/FiolesSVG/Amour.svg" alt="fiole" width="300" height="300"> CA marche pas </object>
+            </div>
+        </div>
+        <div class="fiole-stat">
+            <h3>Effet</h3>
+            <ul>
+                @foreach (var stat in NotrePotion.Stats.Take(2))
+                {
+                    <li>
+                        @stat.Value.Item2
+                    </li>
+                }
+                @foreach (var stat in NotrePotion.Stats.Reverse().Take(1))
+                {
+                    <li>
+                        @stat.Value.Item2
+                    </li>
+                }
+
+            </ul>
+        </div>
+
+
+    </div>
+    <div class="fiole-buttons">
+        <a href='@Url.Action("ResetPotionIntoCookies", "Home")'>
+            <button class="button secondary">
+                Nouvelle potion &#129497;
+            </button>
+        </a>
+        @*<a href='@Url.Action("Test", "Home", new { e = "test" })'>*@
+        <button class="button">
+            Enregistrer la potion &#128214;
+        </button>
+        @*</a>*@
+
+    </div>
+</div>
+</div>
+
