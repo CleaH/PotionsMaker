@@ -19,25 +19,29 @@
     margin-bottom: 20px;
     font-family: 'hp', sans-serif;
     font-size: 2rem;
+    color: var(--hp-gold);
+    text-shadow: 0.5px 0.5px 0.5px gray;
 }
 
 .ing-grid {
     display: grid;
     grid-template-columns: repeat(3, 75px);
     gap: 15px;
-
 }
 
 .ing-image {
     width: 75px;
     height: 75px;
-    background-color: lightblue;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
-.ing-image:hover{
+.ing-button, .ing-button *{
+    border-radius: 100%;
+}
+
+.ing-image:hover {
     transform: translateY(-3px);
 }
 
@@ -45,11 +49,14 @@
     transform: translateY(1px);
 }
 
-.ingpage-center{
+.ingpage-center {
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url(../assets/Texture-fond.webp);
+    background-size: cover;
+    color: #2D2D2D;
 }
 
 .ingpage-center h1 {
@@ -104,11 +111,102 @@
     background-color: #1C1C1C;
     border: 25px solid #1E1E1E;
     border-radius: 100%;
-    overflow: hidden;
+}
+
+.bubble {
+    border-radius: 50%;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2), inset 0px 1px 3px 0.5px rgba(255, 255, 255, 1);
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+.bubble:after {
+    content: "";
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%); /* W3C */
+    border-radius: 50%;
+    box-shadow: inset 0 2px 3px var(--potion);
+    height: 54px;
+    width: 54px;
+    left: 1px;
+    position: absolute;
+}
+
+.x1 {
+    animation: animateBubble 2.5s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 25%;
+    top: 0.5%;
+    transform: scale(0.6);
+}
+
+.x2 {
+    animation: animateBubble 1.8s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    left: 30%;
+    top: 8%;
+    transform: scale(0.4);
+}
+
+.x3 {
+    animation: animateBubble 2.8s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 45%;
+    top: 4%;
+    transform: scale(0.7);
+}
+
+.x4 {
+    animation: animateBubble 1.2s linear infinite, sideWays 3s ease-in-out infinite alternate;
+    left: 20%;
+    top: 0;
+    transform: scale(0.3);
+}
+
+.x5 {
+    animation: animateBubble 2.9s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    left: 30%;
+    top: 5%;
+    transform: scale(0.5);
+}
+
+.x6 {
+    animation: animateBubble 1.1s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 30%;
+    top: 0;
+    transform: scale(0.8);
+}
+
+.x7 {
+    animation: animateBubble 2s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 33%;
+    top: 7%;
+    transform: scale(0.4);
+}
+
+.x8 {
+    animation: animateBubble 2.2s linear infinite, sideWays 3s ease-in-out infinite alternate;
+    left: 35%;
+    top: 1%;
+    transform: scale(0.3);
+}
+
+.x9 {
+    animation: animateBubble 3.2s linear infinite, sideWays 4s ease-in-out infinite alternate;
+    left: 40%;
+    top: 5%;
+    transform: scale(0.6);
+}
+
+.x10 {
+    animation: animateBubble 1s linear infinite, sideWays 2s ease-in-out infinite alternate;
+    left: 33%;
+    top: 8%;
+    transform: scale(0.3);
 }
 
 .chaudron-potion {
-    background-color: var(--potion);
     height: 100%;
     width: 100%;
     border-radius: 100%;
@@ -147,11 +245,12 @@
     margin-bottom: 10px;
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 .potion-ing li .ing-image{
-    height: 25px;
-    width: 25px;
+    height: 50px;
+    width: 50px;
     margin-right: 10px;
     cursor: default;
 }
@@ -183,6 +282,7 @@
 .tooltip {
     display: inline-block;
     border-bottom: 1px dotted black;
+    font-size: 0.9rem;
 }
 
 .tooltip .tooltiptext {
@@ -206,4 +306,12 @@
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+.tooltip-title {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--hp-gold);
+    font-size: 1.4rem;
 }

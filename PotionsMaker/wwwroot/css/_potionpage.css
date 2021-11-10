@@ -1,0 +1,87 @@
+﻿.potionpage-center
+{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(../assets/Texture-fond.webp);
+    background-size: cover;
+    color: #2D2D2D;
+    height: 90vh;
+}
+
+.potionpage-titre {
+    margin-top:10px;
+    font-family: 'hp', sans-serif;
+    font-size: 5rem;
+}
+
+.fiole {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.fiole-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+    width: 250px;
+}
+
+
+.fiole-buttons {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.fiole-buttons .button:first-of-type {
+    margin-right: 15px;
+}
+
+.fiole-stat {
+    align-self: flex-start;
+    justify-self: left;
+    margin-top: 15%;
+    justify-content: left;
+}
+
+.fiole-stat h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.fiole-stat ul {
+    padding-left: 20px;
+    list-style: none;
+}
+
+.fiole-stat li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 1.4rem;
+}
+
+.fiole-stat li .ing-image {
+height: 25px;
+width: 25px;
+margin-right: 10px;
+cursor: default;
+}
+
+.fiole-stat li .ing-image:hover,
+.fiole-stat li .ing-image:active {
+    transform: unset;
+}
+
+.fiole-wrapper {
+    justify-self: center;
+}

@@ -5,53 +5,50 @@
 
 <div class="ingpage">
     <div class="ingnav">
-        <h2>Ingredients</h2>
+        <h2 id="titre-Ingredients">Ingredients</h2>
         <div class="ing-grid">
-            @* map on ingredients *@
-           
+            @if( ingredients == null || ingredients.Count == 0)
+            {
+                <p>Aucun ingrédient</p>
+            } else
+            {
               @foreach (var ingredient in ingredients)
                 {
-                    <div class="ing-image tooltip" onclick="">
-                        <span class="tooltiptext">@ingredient.DescriptionIngredient</span> <img src="@ingredient.ImageIngredient" alt="ingredient" /> 
-                    </div>
-                   
+                    <a class="ing-button" href='@Url.Action("AddIngredientToPotion", "Home", new { ingredientId = ingredient.IngredientId })'>
+                        <div class="ing-image tooltip" onclick="">
+                            <div class="tooltiptext">
+                                <h4 class="tooltip-title">@ingredient.Nom </h4>
+                                @ingredient.DescriptionIngredient
+                            </div>
+                            @{string pathImage = "/assets/Sprites/" + ingredient.IngredientId + ".png";}
+                        <img src="@pathImage" />
+                        </div>
+                    </a>
                 }
-
-            @*<div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>
-            <div class="ing-image"></div>*@
-
-        </div>
+            }
+</div>
     </div>
 
     <div class="ingpage-center">
 
-        <h1 class="">Ma Potion</h1>
+        <h1 class="">@ViewData["Title"]</h1>
 
         <div class="potion">
             <div class="potion-wrapper">
                 <div class="potion-image">
                     <div class="chaudron">
                         <div class="chaudron-top">
-                            <div class="chaudron-potion"></div>
+                        <div class="bubble x1"></div>
+                        <div class="bubble x2"></div>
+                        <div class="bubble x3"></div>
+                        <div class="bubble x4"></div>
+                        <div class="bubble x5"></div>
+                        <div class="bubble x6"></div>
+                        <div class="bubble x7"></div>
+                        <div class="bubble x8"></div>
+                        <div class="bubble x9"></div>
+                        <div class="bubble x10"></div>
+                            <div class="chaudron-potion" style="background-color: @ViewBag.potion.ActualColor;"></div>
                         </div>
                         <div class="chaudron-foot chaudron-foot1"></div>
                         <div class="chaudron-foot chaudron-foot2"></div>
@@ -60,12 +57,18 @@
                 </div>
 
                 <div class="potion-buttons">
-                    <button class="button secondary">
-                        Jeter la potion &#x274C;
-                    </button>
-                    <button class="button">
-                        Préparer la potion &#x1F525;
-                    </button>
+                    <a href='@Url.Action("ResetPotionIntoCookies", "Home")'>
+                        <button class="button secondary">
+                            Jeter la potion &#x274C;
+                        </button>
+                    </a>
+                    <a href='@Url.Action("Index", "Potion")'>
+                        <button class="button">
+                            Préparer la potion &#x1F525;
+                        </button>
+                   
+                    </a>
+
                 </div>
             </div>
             
@@ -73,31 +76,27 @@
             <div class="potion-ing">
                 <h3>Liste des ingrédients</h3>
                 <ul>
-                    <li>
-                        <div class="ing-image"></div>
-                        1 x feuille de menthe
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        3 x feuille de laurier
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        2 x feuille de bouleau
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        1 x feuille de hetre
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        3 x feuille de fraise
-                    </li>
-                    <li>
-                        <div class="ing-image"></div>
-                        2 x feuille de mandragor
-                    </li>
+                    @if (@ViewBag.listeIngredients == null || @ViewBag.listeIngredients.Count == 0)
+                    {
+                        <p>Aucun ingrédient</p>
+                    }
+                    else
+                    {
+                        @foreach (var ing in @ViewBag.listeIngredients)
+                        {
+                            <li>
+                                <div class="ing-image">
+                                    @{string pathImage = "/assets/Sprites/" + ing.Key.IngredientId + ".png";}
+                                    <img src="@pathImage" width="50" height="50" />
+
+                                </div>
+                                @ing.Value x @ing.Key.Nom
+                            </li>
+                        }
+                    }
+
                 </ul>
+
             </div>
         </div>
     </div>
