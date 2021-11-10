@@ -11,6 +11,7 @@
    sodipodi:docname="Toxicity.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
@@ -23,9 +24,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.37059484"
-     inkscape:cx="661.09933"
-     inkscape:cy="800.06511"
+     inkscape:zoom="0.58353847"
+     inkscape:cx="277.61666"
+     inkscape:cy="568.08594"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="1912"
@@ -34,6 +35,30 @@
      inkscape:current-layer="layer1" />
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient2527">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop2523" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop2525" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient1725">
+      <stop
+         style="stop-color:#420000;stop-opacity:1;"
+         offset="0"
+         id="stop1721" />
+      <stop
+         style="stop-color:#420000;stop-opacity:0;"
+         offset="1"
+         id="stop1723" />
+    </linearGradient>
     <inkscape:path-effect
        effect="fillet_chamfer"
        id="path-effect5659"
@@ -158,6 +183,24 @@
        oposite_fuse="false"
        split_items="false"
        split_open="false" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1725"
+       id="linearGradient1727"
+       x1="113.1179"
+       y1="330.07693"
+       x2="108.95179"
+       y2="221.3783"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2527"
+       id="linearGradient2529"
+       x1="61.211563"
+       y1="219.9071"
+       x2="148.26572"
+       y2="202.22404"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Calque 1"
@@ -184,5 +227,13 @@
        d="M 94.377834,62.454443 C 94.229008,41.853848 88.716187,31.98089 83.381189,21.752478 89.696681,-3.493423 119.86247,9.5316782 120.36998,21.038399 114.87054,35.781343 114.69425,51.588893 112.65802,67.024472 102.42538,41.493432 99.710976,59.568233 94.377834,62.454443 Z"
        id="path8469"
        sodipodi:nodetypes="ccccc" />
+    <path
+       id="path1629"
+       style="fill:url(#linearGradient1727);fill-opacity:1;stroke:none;stroke-width:0.846816px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 100.23308,68.737673 a 7.4263219,8.283205 0 0 0 -7.426181,8.284579 7.4263219,8.283205 0 0 0 7.426181,8.282946 7.4263219,8.283205 0 0 0 7.42619,-8.282946 7.4263219,8.283205 0 0 0 -7.42619,-8.284579 z m 3.99921,38.275487 a 5.1412998,4.2844161 0 0 0 -5.142065,4.28371 5.1412998,4.2844161 0 0 0 5.142065,4.28371 5.1412998,4.2844161 0 0 0 5.14047,-4.28371 5.1412998,4.2844161 0 0 0 -5.14047,-4.28371 z m 13.70951,40.55794 -34.274576,0.57226 -25.134938,26.2778 6.853924,75.40478 27.991286,19.99447 21.707964,-0.0288 23.99371,-25.10681 6.28332,-73.12072 z" />
+    <path
+       style="fill:url(#linearGradient2529);stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="m 108.36641,134.65649 17.67581,49.27328 -1.00405,61.01679 -9.95271,24.84504 30.00637,-16.78772 3.17389,-61.66403 z"
+       id="path2191" />
   </g>
 </svg>
