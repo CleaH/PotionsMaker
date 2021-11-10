@@ -15,7 +15,7 @@
             <h3>Liste des ingrédients</h3>
 
             <ul>
-                @if (NotrePotion.Ingredients == null)
+                @if (NotrePotion.Ingredients == null || NotrePotion.Ingredients.Count == 0)
                 {
                     <p>Aucun ingrédient</p>
                 }
