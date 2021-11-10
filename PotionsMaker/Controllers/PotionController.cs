@@ -34,9 +34,45 @@ namespace PotionsMaker.Controllers
             SetStats(potion);
             potion.Stats = potion.Stats.OrderByDescending( s => s.Value.Item1).ToDictionary(p => p.Key, p => p.Value);
         }
-        static public void GetMaxEffects(Potion potion)
+
+        static public string GetFlaconUrl(Potion potion)
         {
             GetMaxStats(potion);
+            string maxStat = potion.Stats.ElementAt(0).Key;
+            string url = "/assets/FiolesSVG/";
+            switch (maxStat)
+            {
+                case "Toxicité":
+                    url += "Toxicity.svg";
+                    break;
+                case "Soin":
+                    url += "Soin.svg";
+                    break;
+                case  "Amour":
+                    url += "Amour.svg";
+                    break;
+                case "Puissance":
+                    url += "Puissance.svg";
+                    break;
+                case "Mana":
+                    url += "Mana.svg";
+                    break;
+                case "Intelligence":
+                    url += "Intelligence.svg";
+                    break;
+                case "Agilité":
+                    url += "Agilite.svg";
+                    break;
+                default:
+                    break;
+            }
+            return url;
+        }
+
+        static public void GetMaxEffects(Potion potion) 
+        {
+            GetMaxStats(potion);
+
             switch (potion.Stats["Toxicité"].Item1)
             {
                 case int i when (i < -10):
