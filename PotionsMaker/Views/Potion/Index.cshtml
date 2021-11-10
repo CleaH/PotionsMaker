@@ -54,6 +54,23 @@
                     <li> -10 point pour la Wild Code School. </li>
                     <li> Non mais tu t'attendais à quoi ... </li>
                 }
+                else if (list.Count == 1)
+                {
+
+                    <li> @NotrePotion.Stats.First().Value.Item2 </li>
+
+
+                    <li> Mais j'appelle pas ca une potion ... </li>
+                }
+                else if (ViewBag.TypePotion == "Felix")
+                {
+                    <li>Félicitation, tu as créer la potion de chance liquide !!! </li>
+                    <li>La potion "felix felicis" </li>
+                }
+                else if (ViewBag.TypePotion == "Polynectar")
+                {
+                    <li> Félicitation, tu as fabriqué du polynectar !!! </li>
+                }
                 else
                 {
 
@@ -74,7 +91,7 @@
             </ul>
         </div>
 
-
+         
     </div>
 
 
