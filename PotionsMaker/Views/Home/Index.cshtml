@@ -38,16 +38,16 @@
                 <div class="potion-image">
                     <div class="chaudron">
                         <div class="chaudron-top">
-                        <div class="bubble x1"></div>
-                        <div class="bubble x2"></div>
-                        <div class="bubble x3"></div>
-                        <div class="bubble x4"></div>
-                        <div class="bubble x5"></div>
-                        <div class="bubble x6"></div>
-                        <div class="bubble x7"></div>
-                        <div class="bubble x8"></div>
-                        <div class="bubble x9"></div>
-                        <div class="bubble x10"></div>
+                            <div class="bubble x1"></div>
+                            <div class="bubble x2"></div>
+                            <div class="bubble x3"></div>
+                            <div class="bubble x4"></div>
+                            <div class="bubble x5"></div>
+                            <div class="bubble x6"></div>
+                            <div class="bubble x7"></div>
+                            <div class="bubble x8"></div>
+                            <div class="bubble x9"></div>
+                            <div class="bubble x10"></div>
                             <div class="chaudron-potion" style="background-color: @ViewBag.potion.ActualColor;"></div>
                         </div>
                         <div class="chaudron-foot chaudron-foot1"></div>
@@ -63,14 +63,16 @@
                         </button>
                     </a>
                     @*<a href='@Url.Action("Test", "Home", new { e = "test" })'>*@
-                        <button class="button">
-                            Préparer la potion &#x1F525;
-                        </button>
+                    <button class="button">
+                        Préparer la potion &#x1F525;
+                    </button>
                     @*</a>*@
 
                 </div>
             </div>
-            
+
+            <object id="potionSvg" data="/assets/fiole01.svg"></object>
+
 
             <div class="potion-ing">
                 <h3>Liste des ingrédients</h3>
