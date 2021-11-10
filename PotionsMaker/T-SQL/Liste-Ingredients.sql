@@ -1,5 +1,8 @@
 Use PotionMaker;
+select * from Ingredient
 GO
+
+truncate table Ingredient;
 
 INSERT INTO Ingredient (nom, descriptionIngredient, R, V, B, toxicity, soin, amour, puissance, mana, intelligence, agilite)
 VALUES 
@@ -97,7 +100,7 @@ VALUES
         'Sang de dragon', 
         'Du sang qui a de très nombreuses propriétés. Peut être utilisé comme nettoyant pour four, détachant, remède contre les verrues et ingrédient de potion.',
         103, 26, 23, 
-        1, 5, -5, 6, 6, 6, -2
+        1, 5, -5, 6, 9, 6, -2
     ), 
     (
         'Bézoard', 
@@ -127,5 +130,6 @@ VALUES
         'Crin de licorne', 
         'L''ingredient majoritaire de la potion d''embellissement. ',
         166, 167, 173,
-        0, 0, 8, 5, 3, 0, 0
+        0, 0, 8, 5, 9, 0, 0
     )
+
