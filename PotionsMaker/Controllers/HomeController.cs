@@ -38,6 +38,8 @@ namespace PotionsMaker.Controllers
             return View();
         }
 
+
+
         private Dictionary<Ingredient, int> ParsePotionIngredients(Potion potion)
         {
             Dictionary<int, int> listeIngInt = new Dictionary<int, int>();

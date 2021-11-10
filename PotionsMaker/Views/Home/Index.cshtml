@@ -81,7 +81,8 @@
                         {
                             <li>
                                 <div class="ing-image">
-                                    <img src="@ing.Key.ImageIngredient" />
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(ing.Key.ImageIngredient)" width="80" height="80" />
+
                                 </div>
                                 @ing.Value x @ing.Key.Nom
                             </li>
