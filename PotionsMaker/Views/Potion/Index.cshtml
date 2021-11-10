@@ -1,6 +1,7 @@
-﻿@{
+﻿@{ 
     ViewData["Title"] = "Potion Maker";
-}
+    Potion NotrePotion = ViewBag.Potion;
+ }
 
 <div class="potionpage-center">
 
@@ -10,19 +11,19 @@
         <div class="fiole-stat">
             <h3>Liste des ingrédients</h3>
             <ul>
-                @if (@ViewBag.listeIngredients == null || @ViewBag.listeIngredients.Count == 0)
+                @if (NotrePotion.Ingredients == null )
                 {
                     <p>Aucun ingrédient</p>
                 }
                 else
                 {
-                    @foreach (var ing in @ViewBag.listeIngredients)
+                    @foreach (var ing in NotrePotion.Ingredients)
                     {
                         <li>
                             <div class="ing-image">
-                                <img src="@ing.Key.ImageIngredient" />
+                                <img src="@ing.ImageIngredient" />
                             </div>
-                            @ing.Value x @ing.Key.Nom
+                            @ing.Nom
                         </li>
                     }
                 }
@@ -31,11 +32,26 @@
         </div>
         <div class="fiole-wrapper">
             <div class="fiole-image">
-                <img  src="~/assets/fire.gif" alt="Alternate Text" />
+                <object data="/assets/FiolesSVG/Amour.svg" alt="fiole" width="300" height="300"> CA marche pas </object>
             </div>
         </div>
-        <div>
-            <p>Stat</p>
+        <div class="fiole-stat">
+            <h3>Effet</h3>
+            <ul>
+                @foreach (var stat in NotrePotion.Stats.Take(2))
+                {
+                    <li>
+                        @stat.Value.Item2
+                    </li>
+                }
+                @foreach (var stat in NotrePotion.Stats.Reverse().Take(1))
+                {
+                    <li>
+                        @stat.Value.Item2
+                    </li>
+                }
+
+            </ul>
         </div>
 
 
