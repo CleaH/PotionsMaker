@@ -24,14 +24,7 @@ namespace PotionsMaker.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                if (Directory.Exists("/Users/jeremyg"))
-                {
-                    optionsBuilder.UseSqlServer("Server=localhost;Database=PotionMaker;user id=sa;password=MyPass@word;");
-                }
-                else
-                {
-                    optionsBuilder.UseSqlServer("Data Source = localhost; Initial Catalog = PotionMaker; Integrated Security = False");
-                }
+                optionsBuilder.UseSqlServer("Data Source = localhost; Initial Catalog = PotionMaker; Integrated Security = True");
             }
         }
 
