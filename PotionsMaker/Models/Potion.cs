@@ -7,7 +7,6 @@ namespace PotionsMaker.Models
         public string ActualColor { get; set; }
         public List<Ingredient> Ingredients { get; set; }
         public Dictionary<string, int?> Stats { get; set; }
-        public int compteur;
 
         public Potion()
         {
