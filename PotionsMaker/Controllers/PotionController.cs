@@ -34,9 +34,6 @@ namespace PotionsMaker.Controllers
             SetStats(potion);
             potion.Stats = potion.Stats.OrderByDescending( s => s.Value.Item1).ToDictionary(p => p.Key, p => p.Value);
         }
-        static public void GetMaxEffects(Potion potion)
-        {
-            GetMaxStats(potion);
 
         static public string GetFlaconUrl(Potion potion)
         {
