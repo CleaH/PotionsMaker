@@ -9,9 +9,8 @@ namespace PotionsMaker.Tools
     public class ColorTools
     {
         public Color col;
-        public static string ChangeColor(string newColString, string actualColString)
+        public static string ChangeColor(Color newColor, string actualColString)
         {
-            Color newColor = ColorTranslator.FromHtml(newColString);
             Color actualColor = ColorTranslator.FromHtml(actualColString);
             int r = (newColor.R + actualColor.R) / 2;
             int g = (newColor.G + actualColor.G) / 2;

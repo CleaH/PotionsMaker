@@ -16,7 +16,10 @@
                 {
                     <a href='@Url.Action("AddIngredientToPotion", "Home", new { ingredientId = ingredient.IngredientId })'>
                         <div class="ing-image tooltip" onclick="">
-                            <span class="tooltiptext">@ingredient.DescriptionIngredient</span> 
+                            <div class="tooltiptext">
+                                <h4 class="tooltip-title">@ingredient.Nom </h4>
+                                @ingredient.DescriptionIngredient
+                            </div> 
                             <img src="@ingredient.ImageIngredient" />
                         </div>
                     </a>
@@ -44,7 +47,7 @@
                         <div class="bubble x8"></div>
                         <div class="bubble x9"></div>
                         <div class="bubble x10"></div>
-                            <div class="chaudron-potion"></div>
+                            <div class="chaudron-potion" style="background-color: @ViewBag.potion.ActualColor;"></div>
                         </div>
                         <div class="chaudron-foot chaudron-foot1"></div>
                         <div class="chaudron-foot chaudron-foot2"></div>
@@ -81,7 +84,8 @@
                         {
                             <li>
                                 <div class="ing-image">
-                                    <img src="@ing.Key.ImageIngredient" />
+                                    <img src="data:image;base64,@System.Convert.ToBase64String(ing.Key.ImageIngredient)" width="80" height="80" />
+
                                 </div>
                                 @ing.Value x @ing.Key.Nom
                             </li>
