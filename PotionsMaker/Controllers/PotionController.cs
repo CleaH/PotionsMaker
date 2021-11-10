@@ -1,10 +1,18 @@
-using System.Collections.Generic;
-using System.Linq;
 using PotionsMaker.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.Linq;
+using System.Threading.Tasks;
+using PotionsMaker.Tools;
 
-namespace PotionsMaker 
+
+namespace PotionsMaker.Controllers
 {
-    public class PotionController
+    public class PotionController : Controller
     {
         static public void SetStats(Potion potion)
         {
@@ -25,5 +33,12 @@ namespace PotionsMaker
             Dictionary<string, int?> sortedStats = potion.Stats.OrderByDescending( s => s.Value).ToDictionary(p => p.Key, p => p.Value);
             return sortedStats;
         }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
+
     }
 }

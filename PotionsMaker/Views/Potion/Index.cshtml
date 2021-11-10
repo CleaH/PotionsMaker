@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Potion Maker";
+}
+
+<div class="potionpage-center">
+
+    <h1 class="potionpage-titre">@ViewData["Title"]</h1>
+
+    <div class="fiole">
+        <div class="fiole-stat">
+            <h3>Liste des ingrédients</h3>
+            <ul>
+                @if (@ViewBag.listeIngredients == null || @ViewBag.listeIngredients.Count == 0)
+                {
+                    <p>Aucun ingrédient</p>
+                }
+                else
+                {
+                    @foreach (var ing in @ViewBag.listeIngredients)
+                    {
+                        <li>
+                            <div class="ing-image">
+                                <img src="@ing.Key.ImageIngredient" />
+                            </div>
+                            @ing.Value x @ing.Key.Nom
+                        </li>
+                    }
+                }
+
+            </ul>
+        </div>
+        <div class="fiole-wrapper">
+            <div class="fiole-image">
+                <img  src="~/assets/fire.gif" alt="Alternate Text" />
+            </div>
+        </div>
+        <div>
+            <p>Stat</p>
+        </div>
+
+
+    </div>
+    <div class="fiole-buttons">
+        <a href='@Url.Action("ResetPotionIntoCookies", "Home")'>
+            <button class="button secondary">
+                Nouvelle potion &#129497;
+            </button>
+        </a>
+        @*<a href='@Url.Action("Test", "Home", new { e = "test" })'>*@
+        <button class="button">
+            Enregistrer la potion &#128214;
+        </button>
+        @*</a>*@
+
+    </div>
+</div>
+</div>
+
