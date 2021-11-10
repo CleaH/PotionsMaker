@@ -13,7 +13,7 @@
         <div class="fiole-stat">
             <h3>Liste des ingrédients</h3>
             <ul>
-                @if (NotrePotion.Ingredients == null)
+                @if (NotrePotion == null || NotrePotion.Ingredients.Count == 0)
                 {
                     <p>Aucun ingrédient</p>
                 }
@@ -43,19 +43,28 @@
         <div class="fiole-stat">
             <h3>Effet</h3>
             <ul>
-                @foreach (var stat in NotrePotion.Stats.Take(2))
+                @if (NotrePotion == null || NotrePotion.Ingredients.Count == 0)
                 {
-                    <li>
-                        @stat.Value.Item2
-                    </li>
+                    <li> -10 point pour la Wild Code School. </li>
+                    <li> Non mais tu t'attendais à quoi ... </li>
                 }
-                @foreach (var stat in NotrePotion.Stats.Reverse().Take(1))
+                else
                 {
-                    <li>
-                        @stat.Value.Item2
-                    </li>
-                }
 
+                    @foreach (var stat in NotrePotion.Stats.Take(2))
+                    {
+                        <li>
+                            @stat.Value.Item2
+                        </li>
+                    }
+                    @foreach (var stat in NotrePotion.Stats.Reverse().Take(1))
+                    {
+                        <li>
+                            @stat.Value.Item2
+                        </li>
+                    }
+
+                }
             </ul>
         </div>
 
@@ -67,12 +76,6 @@
                 Nouvelle potion &#129497;
             </button>
         </a>
-        @*<a href='@Url.Action("Test", "Home", new { e = "test" })'>*@
-        <button class="button">
-            Enregistrer la potion &#128214;
-        </button>
-        @*</a>*@
-
     </div>
 </div>
 
