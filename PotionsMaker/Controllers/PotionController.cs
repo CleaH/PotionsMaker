@@ -14,6 +14,7 @@ namespace PotionsMaker.Controllers
 {
     public class PotionController : Controller
     {
+        Potion currentPotion;
         static public void SetStats(Potion potion)
         {
             foreach (Ingredient ingredient in potion.Ingredients)
@@ -33,10 +34,9 @@ namespace PotionsMaker.Controllers
             SetStats(potion);
             potion.Stats = potion.Stats.OrderByDescending( s => s.Value.Item1).ToDictionary(p => p.Key, p => p.Value);
         }
-        static public void GetMaxEffects(Potion potion) 
+        static public void GetMaxEffects(Potion potion)
         {
-            GetMaxEffects(potion);
-
+            GetMaxStats(potion);
             switch (potion.Stats["Toxicité"].Item1)
             {
                 case int i when (i < -10):
@@ -186,8 +186,27 @@ namespace PotionsMaker.Controllers
             }
         }
 
+        public Potion GetPotionFromCookies()
+        {
+            Potion cookiePotion;
+            if (HttpContext.Session.GetObjectFromJson<Potion>("currentPotion") == null)
+            {
+                cookiePotion = new Potion();
+                HttpContext.Session.SetObjectAsJson("currentPotion", currentPotion);
+            }
+            else
+            {
+                cookiePotion = HttpContext.Session.GetObjectFromJson<Potion>("currentPotion");
+            }
+            return cookiePotion;
+        }
+
         public IActionResult Index()
         {
+            currentPotion = GetPotionFromCookies();
+            GetMaxEffects(currentPotion);
+            ViewBag.Potion = currentPotion;
+
             return View();
         }
 

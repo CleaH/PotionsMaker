@@ -1,6 +1,8 @@
 ﻿@{ 
     ViewData["Title"] = "Potion Maker";
     Potion NotrePotion = ViewBag.Potion;
+
+    Dictionary<Ingredient, int> list = NotrePotion.Ingredients.GroupBy(ing => ing.IngredientId).ToDictionary(x => x.First(), x => x.Count());
  }
 
 <div class="potionpage-center">
@@ -11,7 +13,7 @@
         <div class="fiole-stat">
             <h3>Liste des ingrédients</h3>
             <ul>
-                @if (NotrePotion.Ingredients == null )
+                @if (NotrePotion.Ingredients == null)
                 {
                     <p>Aucun ingrédient</p>
                 }
@@ -24,6 +26,16 @@
                                 <img src="@ing.ImageIngredient" />
                             </div>
                             @ing.Nom
+                        </li>
+                    }
+                    @foreach (var ing in list)
+                    {
+                        <li>
+                            <div class="ing-image">
+                                @*<img src="data:image;base64,@System.Convert.ToBase64String(ing.Key.ImageIngredient)" width="80" height="80" />*@
+
+                            </div>
+                            @ing.Value x @ing.Key.Nom
                         </li>
                     }
                 }
