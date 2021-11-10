@@ -1,0 +1,19 @@
+﻿@keyframes animateBubble {
+    0% {
+        top: 0%;
+    }
+
+    100% {
+        top: -200%;
+    }
+}
+
+@keyframes sideWays {
+    0% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 40px;
+    }
+}
