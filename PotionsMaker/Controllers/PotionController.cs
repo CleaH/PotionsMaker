@@ -242,6 +242,8 @@ namespace PotionsMaker.Controllers
             currentPotion = GetPotionFromCookies();
             GetMaxEffects(currentPotion);
             ViewBag.Potion = currentPotion;
+            String flaconUrl = GetFlaconUrl(currentPotion);
+            ViewBag.flaconUrl = flaconUrl;
 
             return View();
         }

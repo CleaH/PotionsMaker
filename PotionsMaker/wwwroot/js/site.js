@@ -1,4 +1,7 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const changeColor = () => {
+    let svpObject = document.querySelector("#potionSvg");
+    var newHexa = document.getElementById("newHexa").textContent; // valeur hexa récupérée dans un element du HTML
+    svpObject.contentDocument.querySelector("#potion").style.fill = newHexa;
+}
 
-// Write your JavaScript code.
+document.getElementById("potionSvg").onload = changeColor;
