@@ -26,6 +26,7 @@ body {
     background-color: white;
     background-repeat: no-repeat;
     overflow-x: hidden;
+    margin: -1 px;
 }
 
 footer {
